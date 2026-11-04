@@ -1,0 +1,15 @@
+# 잠정 부 목록. 저자가 고친 뒤 scripts/assemble_book.py 를 다시 실행한다.
+# title 은 글 프론트매터의 part 와 글자까지 같아야 한다.
+parts:
+  - number: 1
+    title: "1부 돈의 본질"
+    empty: placeholders/part-01.qmd
+  - number: 2
+    title: "2부 지급결제와 금융시장인프라"
+    empty: placeholders/part-02.qmd
+  - number: 3
+    title: "3부 토큰화와 디지털화폐(CBDC·스테이블코인·예금토큰)"
+    empty: placeholders/part-03.qmd
+  - number: 4
+    title: "4부 중앙은행의 다음 10년"
+    empty: placeholders/part-04.qmd

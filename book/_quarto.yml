@@ -1,0 +1,90 @@
+# 이 파일이 책 설정의 원천이다.
+# book/_quarto.yml, book/chapters/, book/back-index.qmd 는
+# scripts/assemble_book.py 가 다시 쓴다. 그 세 곳은 직접 고치지 않는다.
+# PARTS 표시 줄은 글의 part, chapter 로 바뀐다.
+
+project:
+  type: book
+  output-dir: _book
+
+lang: ko
+
+language:
+  title-block-published: "날짜"
+
+execute:
+  enabled: false
+
+bibliography: ../references.bib
+csl: ../styles/chicago-notes-bibliography.csl
+link-citations: true
+
+book:
+  title: "디지털화폐 초고"
+  subtitle: "돈, 지급결제, 토큰화, 그리고 중앙은행"
+  author: "윤성관"
+  date: today
+  output-file: digital-currency-draft
+  chapters:
+    - index.qmd
+    - acknowledgements.qmd
+    - part: "1부 돈의 본질"
+      chapters:
+        - chapters/01-01-don-iran-mueot-inga.qmd
+    - part: "2부 지급결제와 금융시장인프라"
+      chapters:
+        - placeholders/part-02.qmd
+    - part: "3부 토큰화와 디지털화폐(CBDC·스테이블코인·예금토큰)"
+      chapters:
+        - chapters/03-01-digital-eotteoke-darul-geosinga.qmd
+    - part: "4부 중앙은행의 다음 10년"
+      chapters:
+        - placeholders/part-04.qmd
+    - glossary.qmd
+    - references.qmd
+    - back-index.qmd
+
+format:
+  html:
+    theme:
+      - litera
+      - ../styles.scss
+    toc: true
+    number-sections: true
+    lang: ko
+    respect-user-color-scheme: true
+    include-in-header:
+      text: |
+        <meta name="robots" content="noindex, nofollow">
+  epub:
+    lang: ko
+    toc: true
+    number-sections: true
+  pdf:
+    documentclass: scrreprt
+    classoption:
+      - oneside
+      - openany
+    papersize: a4
+    fontsize: 11pt
+    pdf-engine: lualatex
+    lang: ko
+    mainfont: "Noto Serif CJK KR"
+    sansfont: "Noto Sans CJK KR"
+    monofont: "Noto Sans Mono CJK KR"
+    mainfontoptions:
+      - Script=Hangul
+      - Language=Korean
+    sansfontoptions:
+      - Script=Hangul
+      - Language=Korean
+    monofontoptions:
+      - Script=Hangul
+      - Language=Korean
+    toc: true
+    number-sections: true
+    colorlinks: true
+    callout-icon: false
+    include-in-header:
+      text: |
+        \AtBeginDocument{\renewcommand{\partname}{부 }}

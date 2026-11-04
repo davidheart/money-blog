@@ -1,0 +1,15 @@
+---
+title: "1부 원고를 기다리는 자리"
+part: "1부 돈의 본질"
+status: draft
+tags:
+  - 예시
+---
+
+::: {.epub-part}
+*1부 돈의 본질*
+:::
+
+{{< include _banner.md >}}
+
+{{< include _empty.md >}}

@@ -1,0 +1,55 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - about.qmd
+    - posts/*/index.qmd
+
+lang: ko
+
+language:
+  title-block-published: "날짜"
+
+bibliography: references.bib
+csl: styles/chicago-notes-bibliography.csl
+link-citations: true
+
+execute:
+  enabled: false
+
+website:
+  title: "디지털화폐 초고"
+  description: "윤성관의 비공개 초고. 글은 한 번 쓰고, 블로그와 책으로 함께 읽는다."
+  navbar:
+    background: "#1e3a5f"
+    foreground: "#f6f4f0"
+    left:
+      - text: "글"
+        href: index.qmd
+      - text: "소개"
+        href: about.qmd
+    right:
+      - text: "비공개 초고"
+        href: about.qmd
+  page-footer:
+    left: "© 윤성관 · 비공개 초고"
+    right: "공개 배포하지 않음"
+  search:
+    location: navbar
+    type: overlay
+  back-to-top-navigation: true
+
+format:
+  html:
+    theme:
+      - litera
+      - styles.scss
+    toc: true
+    toc-title: "차례"
+    lang: ko
+    date-format: "YYYY-MM-DD"
+    citations-hover: true
+    include-in-header:
+      text: |
+        <meta name="robots" content="noindex, nofollow">

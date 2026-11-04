@@ -1,0 +1,40 @@
+# 렌더가 되는지만 확인한다. 배포 단계가 없다.
+# GitHub Pages, quarto publish, 아티팩트 업로드를 하지 않는다.
+
+name: render
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    name: website and book
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: "1.11.9"
+
+      - name: Install PyYAML
+        run: sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y python3-yaml
+
+      - name: Check assembled book matches posts
+        run: python3 scripts/assemble_book.py --check
+
+      - name: Render website
+        run: quarto render
+
+      - name: Render book HTML
+        run: quarto render book --to html
+
+      - name: Render book EPUB
+        run: quarto render book --to epub --no-clean

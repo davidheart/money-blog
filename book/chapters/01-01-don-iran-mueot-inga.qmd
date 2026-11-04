@@ -1,0 +1,20 @@
+---
+# 생성 파일. 원천: posts/2026-11-03-don-iran-mueot-inga/body.md
+# scripts/assemble_book.py 가 다시 씁니다. 본문은 body.md 만 고치세요.
+title: "돈이란 무엇인가"
+date: "2026-11-03"
+part: "1부 돈의 본질"
+chapter: "1장 돈이란 무엇인가"
+status: "draft"
+tags:
+  - "예시"
+  - "돈"
+---
+
+::: {.epub-part}
+*1부 돈의 본질 · 1장 돈이란 무엇인가*
+:::
+
+{{< include ../../posts/2026-11-03-don-iran-mueot-inga/_banner.md >}}
+
+{{< include ../../posts/2026-11-03-don-iran-mueot-inga/body.md >}}

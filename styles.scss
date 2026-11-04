@@ -1,0 +1,34 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: "Noto Sans CJK KR", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans", sans-serif;
+$font-family-serif: "Noto Serif CJK KR", "Noto Serif KR", "Noto Serif", serif;
+$body-bg: #f6f4f0;
+$body-color: #1c1917;
+$link-color: #1e3a5f;
+$navbar-bg: #1e3a5f;
+$navbar-fg: #f6f4f0;
+$footer-bg: #1e3a5f;
+$footer-fg: #e7e5e4;
+
+/*-- scss:rules --*/
+#quarto-content {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.quarto-title-block .quarto-title-meta,
+.quarto-listing table {
+  background: #fff;
+}
+
+span.idx {
+  font-weight: inherit;
+}
+
+/* EPUB 목차에 부가 빠지므로 장 위에 부 이름을 둔다. HTML에서는 사이드바가 부를 보여 주므로 숨긴다. */
+.epub-part {
+  display: none;
+}
+
+.callout {
+  border-radius: 0.35rem;
+}
