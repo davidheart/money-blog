@@ -1,5 +1,7 @@
 # 디지털화폐 초고
 
+글을 브라우저에서 쓰려면 [브라우저에서 글 쓰기](WRITING_IN_BROWSER.md)를 따릅니다. Quarto를 설치하지 않아도 됩니다.
+
 윤성관이 나중에 한 권의 책으로 엮기 위해 쓰는 비공개 초고입니다. 본문은 `posts/`에 한 번만 둡니다. 블로그는 그 글을 날짜순으로 보여주고, 책은 부·장 순서로 다시 엮습니다.
 
 조판은 [Quarto](https://quarto.org) 1.11입니다. 웹사이트, HTML 책, EPUB, PDF를 같은 원고에서 만들 수 있습니다. 이 저장소는 Quarto 1.11.9에서 렌더를 확인했습니다.
@@ -13,6 +15,8 @@
 | 경로 | 역할 |
 | --- | --- |
 | `posts/` | 글. 블로그의 원천이자 책 본문 |
+| `posts/_template/` | 새 글을 복사하는 틀. 목록과 책에 넣지 않음 |
+| `WRITING_IN_BROWSER.md` | 브라우저에서 글을 쓰고 커밋하는 절차 |
 | `book/` | 책 프로젝트. 서문, 감사의 글, 용어집, 참고문헌, 색인 |
 | `parts.yml` | 잠정 부 이름 |
 | `references.bib` | 참고문헌 데이터 |
@@ -25,11 +29,13 @@
 
 ## 글을 쓰는 방법
 
-1. `posts/YYYY-MM-DD-슬러그/` 디렉터리를 만듭니다. 슬러그는 소문자, 숫자, 한글, 하이픈만 씁니다.
-2. `index.qmd`에 프론트매터를 적고, 본문 자리에 아래 한 줄을 둡니다.
-3. 본문은 `body.md`에만 적습니다. 프론트매터를 넣지 않습니다.
-4. `python3 scripts/assemble_book.py`를 실행합니다.
-5. 바뀐 `book/_quarto.yml`, `book/chapters/`, `book/back-index.qmd`를 글과 함께 커밋합니다.
+브라우저에서 쓸 때는 [브라우저에서 글 쓰기](WRITING_IN_BROWSER.md)만 따르면 됩니다. `posts/_template/`를 날짜 폴더로 복사해 고치고 커밋합니다. 배너와 책 목차는 GitHub Actions가 `scripts/assemble_book.py`로 다시 만든 뒤 렌더합니다. 그 명령은 실행하지 않아도 됩니다. 워크플로는 렌더만 하고 배포하지 않습니다.
+
+컴퓨터에서 같은 작업을 하려면 다음을 합니다.
+
+1. `posts/_template/`를 `posts/YYYY-MM-DD-슬러그/`로 복사합니다. 슬러그는 소문자, 숫자, 한글, 하이픈만 씁니다.
+2. `index.qmd`의 값을 고칩니다. 본문은 `body.md`에만 적습니다.
+3. 미리 보려면 `python3 scripts/assemble_book.py`를 실행한 뒤 아래의 로컬 빌드를 돌립니다. 커밋에는 글 폴더만 있어도 CI가 조립합니다.
 
 `index.qmd`의 모양입니다.
 
@@ -69,7 +75,7 @@ description: "예시입니다. 돈의 정의를 나중에 적을 자리입니다
 | `review` | 검토 중 | 넣음 | 넣음 |
 | `final` | 확정 | 넣음 | 넣음 |
 
-페이지 맨 위의 배너는 프론트매터의 `status`와 `tags`로 만든 `_banner.md`입니다. `tags`에 `예시`가 있으면 자리표시자라고 함께 표시합니다. 지금 들어 있는 두 글은 모두 예시입니다. 사실, 통계, 인용문으로 읽지 않습니다. 상태를 바꾼 뒤에는 조립 스크립트를 다시 실행합니다.
+페이지 맨 위의 배너는 프론트매터의 `status`와 `tags`로 만든 `_banner.md`입니다. `tags`에 `예시`가 있으면 자리표시자라고 함께 표시합니다. 지금 들어 있는 두 글은 모두 예시입니다. 사실, 통계, 인용문으로 읽지 않습니다. 상태를 바꾸면 CI가 배너를 다시 만듭니다.
 
 확정되지 않은 글도 일단 책에 넣습니다. 빈 부에는 `book/placeholders/`의 자리표시자 장이 들어갑니다. 그 부에 글이 생기면 자리표시자는 목차에서 빠집니다.
 
@@ -82,7 +88,7 @@ description: "예시입니다. 돈의 정의를 나중에 적을 자리입니다
 3. 3부 토큰화와 디지털화폐(CBDC·스테이블코인·예금토큰)
 4. 4부 중앙은행의 다음 10년
 
-부를 고친 뒤에는 글의 `part` 값을 맞추고 `python3 scripts/assemble_book.py`를 다시 실행합니다.
+부를 고친 뒤에는 글의 `part` 값을 맞춥니다. CI가 책 목차를 다시 짭니다.
 
 책 제목은 일단 「디지털화폐 초고」, 부제는 「돈, 지급결제, 토큰화, 그리고 중앙은행」입니다. 제목은 `book/_quarto.template.yml`과 웹사이트 `_quarto.yml`에 있습니다. 템플릿을 고친 뒤에도 조립 스크립트를 다시 실행합니다. `book/_quarto.yml`은 직접 고치지 않습니다.
 
@@ -117,7 +123,7 @@ HTML 책의 옆 목차에는 부가 나뉩니다. EPUB 목차는 장을 한 줄�
 scripts/build.sh
 ```
 
-`python3 scripts/assemble_book.py --check`는 생성된 책 파일이 글과 어긋나면 실패합니다. GitHub Actions도 이 검사를 한 뒤 HTML과 EPUB만 렌더합니다.
+GitHub Actions는 글을 커밋할 때마다 `python3 scripts/assemble_book.py`를 실행한 뒤 웹사이트와 책 HTML·EPUB을 렌더합니다. 결과 파일을 저장소에 올리거나 배포하지는 않습니다. 컴퓨터에서 생성된 파일이 글과 같은지 보려면 `python3 scripts/assemble_book.py --check`를 실행합니다.
 
 ### PDF
 

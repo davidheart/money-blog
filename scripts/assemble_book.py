@@ -140,12 +140,17 @@ def load_parts() -> list[dict]:
     return normalized
 
 
+def is_scaffold_dir(name: str) -> bool:
+    """posts/_template 처럼 점이나 밑줄로 시작하는 폴더는 복사용이다."""
+    return name.startswith((".", "_"))
+
+
 def iter_posts() -> list[dict]:
     if not POSTS.is_dir():
         raise AssembleError("posts/ 디렉터리가 없습니다.")
     posts = []
     for index in sorted(POSTS.glob("*/index.qmd")):
-        if index.parent.name.startswith((".", "_")):
+        if is_scaffold_dir(index.parent.name):
             continue
         meta, body = split_front_matter(index)
         posts.append(validate_post(index, meta, body))
@@ -384,7 +389,11 @@ def stale_outputs(expected: dict[Path, str]) -> list[Path]:
         keep = {path for path in expected if path.parent == CHAPTERS}
         stale.extend(path for path in CHAPTERS.glob("*.qmd") if path not in keep)
     if POSTS.exists():
-        stale.extend(path for path in POSTS.glob("*/_banner.md") if path not in expected)
+        stale.extend(
+            path
+            for path in POSTS.glob("*/_banner.md")
+            if path not in expected and not is_scaffold_dir(path.parent.name)
+        )
     return sorted(stale)
 
 

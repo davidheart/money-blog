@@ -1,7 +1,7 @@
 ---
 title: "디지털화폐 초고"
 listing:
-  contents: "posts/*/index.qmd"
+  contents: "posts/20*/index.qmd"
   type: table
   sort: "date desc"
   categories: true

@@ -4,7 +4,7 @@
 
 ## 글은 한 번만 씁니다
 
-본문은 `posts/날짜-슬러그/body.md`에만 둡니다. `index.qmd`는 프론트매터와 `{{< include body.md >}}`만 가집니다. 책 장은 `scripts/assemble_book.py`가 그 본문을 끼워 넣어 만듭니다. 책 파일을 직접 고쳐도 다음 조립에서 덮입니다.
+본문은 `posts/날짜-슬러그/body.md`에만 둡니다. `index.qmd`는 프론트매터와 `{{< include _banner.md >}}`, `{{< include body.md >}}`만 가집니다. 빈 틀은 `posts/_template/`에 있습니다. 책 장은 `scripts/assemble_book.py`가 그 본문을 끼워 넣어 만듭니다. 브라우저에서 커밋하면 CI가 이 스크립트를 실행합니다. 책 파일을 직접 고쳐도 다음 조립에서 덮입니다.
 
 ## 프론트매터
 

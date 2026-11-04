@@ -4,7 +4,7 @@ project:
   render:
     - index.qmd
     - about.qmd
-    - posts/*/index.qmd
+    - posts/20*/index.qmd
 
 lang: ko
 
