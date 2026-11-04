@@ -1,0 +1,33 @@
+# Quarto
+/.quarto/
+**/.quarto/
+/_site/
+_site/
+_freeze/
+**/*_cache/
+**/*_files/
+
+# 책 빌드 결과. 원천은 posts/ 와 book/ 의 원고이다.
+book/_book/
+
+# LaTeX
+*.aux
+*.log
+*.toc
+*.out
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.run.xml
+*.bcf
+
+.DS_Store
+
+**/*.quarto_ipynb

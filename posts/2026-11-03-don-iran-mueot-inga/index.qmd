@@ -1,0 +1,17 @@
+---
+title: "돈이란 무엇인가"
+date: 2026-11-03
+part: "1부 돈의 본질"
+chapter: "1장 돈이란 무엇인가"
+status: draft
+tags:
+  - 예시
+  - 돈
+categories:
+  - "1부 돈의 본질"
+description: "예시입니다. 돈의 정의를 나중에 적을 자리입니다."
+---
+
+{{< include _banner.md >}}
+
+{{< include body.md >}}

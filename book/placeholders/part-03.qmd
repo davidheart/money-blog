@@ -1,0 +1,15 @@
+---
+title: "3부 원고를 기다리는 자리"
+part: "3부 토큰화와 디지털화폐(CBDC·스테이블코인·예금토큰)"
+status: draft
+tags:
+  - 예시
+---
+
+::: {.epub-part}
+*3부 토큰화와 디지털화폐(CBDC·스테이블코인·예금토큰)*
+:::
+
+{{< include _banner.md >}}
+
+{{< include _empty.md >}}

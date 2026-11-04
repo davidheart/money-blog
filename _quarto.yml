@@ -1,0 +1,56 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - about.qmd
+    - posts/20*/index.qmd
+
+lang: ko
+
+language:
+  title-block-published: "날짜"
+
+bibliography: references.bib
+csl: styles/chicago-notes-bibliography.csl
+link-citations: true
+
+execute:
+  enabled: false
+
+website:
+  title: "디지털화폐 초고"
+  description: "윤성관의 초고. 글은 한 번 쓰고, 블로그와 책으로 함께 읽는다."
+  site-url: https://davidheart.github.io/money-blog/
+  navbar:
+    background: "#1e3a5f"
+    foreground: "#f6f4f0"
+    left:
+      - text: "글"
+        href: index.qmd
+      - text: "소개"
+        href: about.qmd
+    right:
+      - text: "초고"
+        href: about.qmd
+  page-footer:
+    left: "© 윤성관 · 초고"
+    right: "한국은행의 공식 견해가 아님"
+  search:
+    location: navbar
+    type: overlay
+  back-to-top-navigation: true
+
+format:
+  html:
+    theme:
+      - litera
+      - styles.scss
+    toc: true
+    toc-title: "차례"
+    lang: ko
+    date-format: "YYYY-MM-DD"
+    citations-hover: true
+    include-in-header:
+      text: |
+        <meta name="robots" content="noindex, nofollow">

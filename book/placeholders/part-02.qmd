@@ -1,0 +1,15 @@
+---
+title: "2부 원고를 기다리는 자리"
+part: "2부 지급결제와 금융시장인프라"
+status: draft
+tags:
+  - 예시
+---
+
+::: {.epub-part}
+*2부 지급결제와 금융시장인프라*
+:::
+
+{{< include _banner.md >}}
+
+{{< include _empty.md >}}

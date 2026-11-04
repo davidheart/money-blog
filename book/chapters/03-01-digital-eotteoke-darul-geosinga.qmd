@@ -1,0 +1,20 @@
+---
+# 생성 파일. 원천: posts/2026-11-04-digital-eotteoke-darul-geosinga/body.md
+# scripts/assemble_book.py 가 다시 씁니다. 본문은 body.md 만 고치세요.
+title: "디지털화폐를 어떻게 다룰 것인가"
+date: "2026-11-04"
+part: "3부 토큰화와 디지털화폐(CBDC·스테이블코인·예금토큰)"
+chapter: "1장 디지털화폐를 어떻게 다룰 것인가"
+status: "draft"
+tags:
+  - "예시"
+  - "디지털화폐"
+---
+
+::: {.epub-part}
+*3부 토큰화와 디지털화폐(CBDC·스테이블코인·예금토큰) · 1장 디지털화폐를 어떻게 다룰 것인가*
+:::
+
+{{< include ../../posts/2026-11-04-digital-eotteoke-darul-geosinga/_banner.md >}}
+
+{{< include ../../posts/2026-11-04-digital-eotteoke-darul-geosinga/body.md >}}

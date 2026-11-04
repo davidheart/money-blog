@@ -1,0 +1,17 @@
+---
+title: "디지털화폐를 어떻게 다룰 것인가"
+date: 2026-11-04
+part: "3부 토큰화와 디지털화폐(CBDC·스테이블코인·예금토큰)"
+chapter: "1장 디지털화폐를 어떻게 다룰 것인가"
+status: draft
+tags:
+  - 예시
+  - 디지털화폐
+categories:
+  - "3부 토큰화와 디지털화폐(CBDC·스테이블코인·예금토큰)"
+description: "예시입니다. 디지털화폐를 다루는 순서를 나중에 적을 자리입니다."
+---
+
+{{< include _banner.md >}}
+
+{{< include body.md >}}
