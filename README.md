@@ -6,7 +6,7 @@
 
 조판은 [Quarto](https://quarto.org) 1.11입니다. 웹사이트, HTML 책, EPUB, PDF를 같은 원고에서 만들 수 있습니다. 이 저장소는 Quarto 1.11.9에서 렌더를 확인했습니다.
 
-공개 배포는 하지 않습니다. GitHub Pages, `quarto publish`, 배포용 워크플로는 켜 두지 않았습니다. 저장소 공개 설정도 바꾸지 않습니다.
+`main`에 푸시되면 블로그(`_site`)만 GitHub Pages로 올립니다. 주소는 https://davidheart.github.io/money-blog/ 입니다. 풀 리퀘스트에서는 조립과 렌더만 합니다. 저장소 공개와 Pages 소스 설정은 여기서 바꾸지 않습니다. 저장소 설정에서 직접 켜야 합니다.
 
 글의 권리는 저자에게 있습니다. 원고에 오픈소스 라이선스를 붙이지 않았습니다. `styles/chicago-notes-bibliography.csl`만 Citation Style Language 저장소의 스타일(CC BY-SA 3.0)입니다.
 
@@ -123,7 +123,7 @@ HTML 책의 옆 목차에는 부가 나뉩니다. EPUB 목차는 장을 한 줄�
 scripts/build.sh
 ```
 
-GitHub Actions는 글을 커밋할 때마다 `python3 scripts/assemble_book.py`를 실행한 뒤 웹사이트와 책 HTML·EPUB을 렌더합니다. 결과 파일을 저장소에 올리거나 배포하지는 않습니다. 컴퓨터에서 생성된 파일이 글과 같은지 보려면 `python3 scripts/assemble_book.py --check`를 실행합니다.
+GitHub Actions는 글을 커밋할 때마다 `python3 scripts/assemble_book.py`를 실행한 뒤 웹사이트와 책 HTML·EPUB을 렌더합니다. `main`에 푸시되면 그 웹사이트를 GitHub Pages에 올립니다. 풀 리퀘스트에서는 올리지 않습니다. 컴퓨터에서 생성된 파일이 글과 같은지 보려면 `python3 scripts/assemble_book.py --check`를 실행합니다.
 
 ### PDF
 
@@ -136,18 +136,15 @@ scripts/build.sh --pdf
 
 `scripts/build.sh --pdf`는 `_quarto.yml`에 적힌 HTML, EPUB, PDF를 모두 렌더합니다. PDF만 다시 만들려면 `quarto render book --to pdf`를 실행합니다.
 
-## 나중에 GitHub Pages로 공개할 때
+## GitHub Pages
 
-지금은 하지 않습니다. 이 작업은 Pages를 켜지 않고, 저장소 공개 범위도 바꾸지 않습니다.
+워크플로는 `main` 푸시에서 `_site`를 올립니다. 저장소 설정은 바꾸지 않으므로, 사이트가 나오려면 설정에서 다음을 직접 켜야 합니다.
 
-공개를 따로 결정할 때만 다음을 검토하면 됩니다.
+1. **Settings → General → Danger Zone → Change repository visibility** 에서 저장소를 **Public** 으로 바꿉니다.
+2. **Settings → Pages → Build and deployment → Source** 를 **GitHub Actions** 로 고릅니다. **Deploy from a branch** 는 고르지 않습니다.
+3. 브랜치나 폴더(`/docs`, `gh-pages`)는 지정하지 않습니다. 워크플로가 `actions/upload-pages-artifact`와 `actions/deploy-pages`로 `_site`를 올립니다.
 
-1. 초고 배너, HTML의 `noindex`, 예시 글을 걷어낼지 정합니다.
-2. 저장소를 공개할지 정합니다. 비공개 저장소의 GitHub Pages는 사용하는 GitHub 플랜에 따라 제한됩니다.
-3. 배포 대상은 웹사이트 결과물 `_site`입니다. 책의 PDF와 EPUB은 웹사이트와 별도로 다룹니다.
-4. 예시 명령은 `quarto publish gh-pages`입니다. 이 명령을 실행하면 공개 배포가 됩니다.
-
-`.github/workflows/render.yml`에는 배포 단계가 없습니다. 렌더가 되는지만 확인합니다.
+첫 `main` 배포가 끝나면 주소는 https://davidheart.github.io/money-blog/ 입니다. 책 PDF와 EPUB은 이 사이트에 올리지 않습니다. HTML에는 검색 수집을 막는 `noindex`가 아직 있습니다. 상태 값과 연결되어 있지 않습니다.
 
 ## 저작과 견해
 

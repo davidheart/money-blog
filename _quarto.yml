@@ -20,7 +20,8 @@ execute:
 
 website:
   title: "디지털화폐 초고"
-  description: "윤성관의 비공개 초고. 글은 한 번 쓰고, 블로그와 책으로 함께 읽는다."
+  description: "윤성관의 초고. 글은 한 번 쓰고, 블로그와 책으로 함께 읽는다."
+  site-url: https://davidheart.github.io/money-blog/
   navbar:
     background: "#1e3a5f"
     foreground: "#f6f4f0"
@@ -30,11 +31,11 @@ website:
       - text: "소개"
         href: about.qmd
     right:
-      - text: "비공개 초고"
+      - text: "초고"
         href: about.qmd
   page-footer:
-    left: "© 윤성관 · 비공개 초고"
-    right: "공개 배포하지 않음"
+    left: "© 윤성관 · 초고"
+    right: "한국은행의 공식 견해가 아님"
   search:
     location: navbar
     type: overlay
